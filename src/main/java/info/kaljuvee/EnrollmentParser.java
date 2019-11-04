@@ -167,6 +167,13 @@ public class EnrollmentParser {
                 csvRecord.get(INSURANCE_COL_KEY));
     }
 
+    /**
+     * Returns output filename based on insurance name.  Converts the insurance name to all lower case characters,
+     * removing all duplicate spaces and dashes.
+     *
+     * @param name Insurance company name
+     * @return Output CSV file name
+     */
     private String getFileName(String name) {
         String result = name.toLowerCase().replaceAll(" ", "-") + ".csv";
         result = result.replaceAll("(\\.)\\1+", "$1");
