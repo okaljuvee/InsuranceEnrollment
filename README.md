@@ -1,17 +1,5 @@
 # Availity Exercises
 
-### Achivements
-
-(Proudest professional or acadmic achievement...)
-
-### Reading
-
-(Tell me a about a book, blog, article or GitHub repo you read or liked recently, and why you like it and why you should recommend I do the same. )
-
-### Availity Business Model
-
-(If you were to describe to a 7-year old what Availity does, what would you say? )
-
 ### Parentheses Validator 
 
 The Lisp code parentheses validator validates parentheses of either string input or file input. The program can be
@@ -21,6 +9,10 @@ run as follows (Gradle tasks):
 `> gradlew runChecker --args "string ((foo)bar)"`\
 `> gradlew runChecker --args "file C:/tmp/long-balanced.lisp"`\
 `> gradlew runChecker --args "file long-balanced.lisp"`
+
+Note that the unit tests are there only for the parser and they can be run by:
+
+`> gradlew test`
 
 ### Enrollment File Parsing
 

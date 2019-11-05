@@ -8,12 +8,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 
+/**
+ * Parentheses checker
+ *
+ * @author Oliver Kaljuvee
+ */
 public class ParenthesesChecker {
     private final static Logger log = Logger.getLogger(ParenthesesChecker.class.getName());
     private static final char OPEN = '(';
     private static final char CLOSE = ')';
     private String input;
 
+    /**
+     * Constructor
+     *
+     * @param input Input string which will be evaluated for the parentheses balance.
+     */
     public ParenthesesChecker(String input) {
         if(input == null) {
             throw new IllegalArgumentException("Input string cannot be null");
@@ -42,6 +52,15 @@ public class ParenthesesChecker {
 
     private static final String RESOURCE_DIR = "src/main/resources/";
 
+    /**
+     * Main method of the parentheses checker and the arguments that are supported:
+     * > java ParenthesesChecker ((foo)bar)
+     * > java ParenthesesChecker string ((foo)bar)
+     * > java ParenthesesChecker file C:/tmp/long-balanced.lisp
+     * > java ParenthesesChecker file long-balanced.lisp
+     *
+     * @param args Program arguments.
+     */
     public static void main(String... args) {
         String input = getInputString(args);
 
@@ -54,6 +73,12 @@ public class ParenthesesChecker {
         log.info("Complete");
     }
 
+    /**
+     * Creates the input string for the checker based on the program arguments provided (see main method above).
+     *
+     * @param args Program arguments
+     * @return Input string for which the parentheses balance will be checked on
+     */
     private static String getInputString(String... args) {
         String input = null;
 
