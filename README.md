@@ -4,14 +4,15 @@ Author: Oliver Kaljuvee
 
 #### Overview
 
-This Java program reads the content of an insurance enrollment file and separates the enrollees by insurance company 
-by writing the output into separate files. The contents of each file are sorted by last and first name (ascending). 
-Only a single user record with the highest version will be included in the output file. 
+This Java program reads the content of an insurance enrollment file and separates the enrollees by insurance company name 
+and by writing the output into separate files. The contents of each file are sorted by last and first name (ascending). 
+The input file may contain multiple versioned records per each user.  Only one record with the highest version will be 
+included in the output file. 
 
 The program demonstrates effective CSV file processing using an Apache Commons libraries, as well as filtering and 
 sorting the data using built-in Java data structures, e.g. `PriorityQueue`. 
 
-#### Installing and Starting
+#### Installing and Running
 These commands assume that you have installed **Java JDK 8+** on Windows:
 
 ```commandline
@@ -20,7 +21,7 @@ These commands assume that you have installed **Java JDK 8+** on Windows:
 > mkdir output
 > gradlew runParser --args "enrollments.csv output/"
 ```
-Optionally, you can pass absolute paths for both the input file and the output directory:  
+Optionally, you can pass absolute paths for both the input file and the output directories:  
 
 ```commandline
 > gradlew runParser --args "C:/tmp/enrollments.csv C:/tmp/"`
@@ -28,9 +29,9 @@ Optionally, you can pass absolute paths for both the input file and the output d
 
 #### Input
 
-The input data is located in th `resources` folder under the `src` directory and it is a CSV file consisting of randomly 
-generated data with user identifier, version, and insurance company columns.  There can be multiple rows for each user, 
-but with different versions:
+The input data is located in the `resources` folder under the `src` directory and it is a CSV file consisting of randomly 
+generated data with user identifier, version, and insurance company columns.  There can be multiple rows for each user 
+with different version numbers:
 
 ```csv
 user_id,name,version,insurance_company
@@ -49,11 +50,11 @@ fe9091ff-ae92-488e-850e-95417a67fa9f,Pamela Yang,5,Western Health Advantage
 
 #### Output  
   
-The program processes the input data and: 
+The program processes the input data while: 
  
-1. Separates the users by insurance company names;
-2. Keeps only the latest version entry of each user; and
-3. Sorts the entries in each file by last and then first name. 
+1. Separating the users by insurance company names;
+2. Keeping only the latest version entry of each user; and
+3. Sorting the entries in each file by last and then first name. 
 
 This is the output for `amerihealth-new-jersey.csv`:
 
@@ -65,4 +66,4 @@ f7ea7674-9eb2-4805-844e-f2c763cb042b,Jaylin Holt,2,AmeriHealth - New Jersey
 6c9c2175-6fc9-4ff0-8c39-f69f6e08cba1,Janiah Mueller,1,AmeriHealth - New Jersey
 ```
 
-The output files get written into `\output` directory, which needs to be created first.
+The output files get written into `\output` directory.
